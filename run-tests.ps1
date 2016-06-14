@@ -36,7 +36,7 @@ function runTests() {
 
     # Disable logs
     if ($loggingEnabled) {
-      & "\\ntpnpsrv\public\oss\selfhost\scripts\start_lxcore_trace.cmd"
+      & "\\ntpnpsrv\public\oss\selfhost\scripts\stop_lxcore_trace.cmd"
     }
 
     Write-Host "---------------------------------------------------------------"
