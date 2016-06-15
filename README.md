@@ -6,6 +6,9 @@ of popular open source projects that are known to work on Ubuntu.\
 
 First, in Bash, run `sudo ./setup.sh`. It'll install Git, Node, build tools, and other basics.
 
-Then, from PowerShell, run `./run-tests.ps1` as Administrator. If you work for Microsoft
-and you're paid to mess with the Kernel, you can also pass `-lxcoreTrace` to enable
-lxcore tracing.
+Then, from PowerShell, run `./run-tests.ps1` as Administrator. 
+
+## Parameters
+
+* Specifying only a specific suite to be run can be enabled by passing `-suiteName suiteNameToTest`
+* lxcore tracing can be enabled by passing `-lxcoreTrace`
