@@ -16,7 +16,7 @@ function getLssPathToTest($testDirectory) {
 
 function runTests() {
     $testSuiteProvided = ($testSuite -ne "")
-    foreach ($testDirectory in Get-ChildItem -Depth 1 -Directory ./tests) {
+    foreach ($testDirectory in Get-ChildItem -Directory ./tests) {
         # If the user provided a test suite name, only run that test suite.
         if ($testSuiteProvided) {
             if ($testDirectory.name -eq $testSuite) {
