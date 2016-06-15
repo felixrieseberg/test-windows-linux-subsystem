@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Basics for, well, development
 sudo apt-get update
 sudo apt-get install git
