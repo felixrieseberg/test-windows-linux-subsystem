@@ -16,7 +16,7 @@ function getLssPathToTest($testDirectory) {
 
 function runTests() {
     $testSuiteProvided = ($testSuite -ne "")
-    foreach ($testDirectory in Get-ChildItem -Depth 1 -Directory ./tests) {
+    foreach ($testDirectory in Get-ChildItem -Directory ./tests) {
         # If the user provided a test suite name, only run that test suite.
         if ($testSuiteProvided) {
             if ($testDirectory.name -eq $testSuite) {
@@ -35,17 +35,20 @@ function runSuite($testDirectory) {
     $loggingEnabled = ($lxcoreTrace -And (Test-Path $traceScriptPath))
 
     # Enable logs
-    Write-Host "Testing $testDirectory.name" in $testScriptPath
+    Write-Host "Testing $testDirectory" in $testScriptPath
     Write-Host "---------------------------------------------------------------"
     if ($loggingEnabled) {
       & "\\ntpnpsrv\public\oss\selfhost\scripts\start_lxcore_trace.cmd"
     }
 
-    # Uuuuuughhhhhaaaaaaargh, newlines
     cd ./tests/$testDirectory
-    Get-ChildItem -File *.sh | % { $x = get-content -raw -path $_.fullname; $x -replace "`r`n","`n" | set-content -path $_.fullname }
 
-    # Run test - move into directory to ensure that logs are found there
+    # Get the script contents and conver the newlines into UNIX style.
+    $scriptFile = Get-ChildItem -File *.sh
+    convertLineEndings($scriptFile)
+
+    # Run test - move into directory to ensure that logs are found ther
+    Write-Host "Running suite! `n" -Backgroundcolor "Green" -ForegroundColor "Black"
     bash $testScriptPath
     cd ../..
 
@@ -55,6 +58,17 @@ function runSuite($testDirectory) {
     }
 
     Write-Host "---------------------------------------------------------------"
+}
+
+function convertLineEndings($scriptFile) {
+    Write-Host "Converting file: " $scriptFile.name -BackgroundColor "Yellow" -ForegroundColor "Black"
+
+    # Uuuuuughhhhhaaaaaaargh, newlines
+    $fileContents = get-content -raw -path $scriptFile.fullname
+    $fileContents = $fileContents -replace "`r`n", "`n"
+    [io.file]::WriteAllText($scriptFile.fullname, $fileContents)
+
+    Write-Host "Done converting file: " $scriptFile.name "`n" -BackgroundColor "Yellow" -ForegroundColor "Black"
 }
 
 # Let's run this puppy, but only if we're admin
