@@ -19,6 +19,7 @@ npm cache clean
 # Basics for python testing
 sudo apt-get install -y python-dev
 sudo apt-get install -y python-pip
+sudo pip install virtualenv
 
 # Django needs the following
 sudo apt-get install -y libffi-dev
