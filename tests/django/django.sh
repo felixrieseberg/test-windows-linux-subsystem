@@ -11,8 +11,11 @@ source env/bin/activate
 git clone https://github.com/django/django
 cd django/tests
 
-# Install testing requirements
+# Install testing requirements.
 pip install -r requirements/py2.txt
 
 # Run tests.
 PYTHONPATH=..:$PYTHONPATH ./runtests.py
+
+# Get ourselves out of this environment.
+deactivate
