@@ -2,29 +2,14 @@
 
 # Basics for, well, development
 sudo apt-get update
-sudo apt-get install git
-sudo apt-get install subversion
+sudo apt-get install -y git
+sudo apt-get install -y subversion
 
-# Basics for Node testing
-curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-sudo apt-get install -y nodejs
-sudo apt-get install -y build-essential
-npm install -g grunt-cli
-npm install -g mocha
+sudo apt-get install -y libmysqlclient-dev
+sudo apt-get install -y libsqlite3-dev
+sudo apt-get install -y libpq-dev
 
-# NPM setup and cleanup.
-npm set registry https://registry.npmjs.org/
-npm cache clean
-
-# Basics for python testing
-sudo apt-get install -y python-dev
-sudo apt-get install -y python-pip
-sudo pip install virtualenv
-
-# Django needs the following
-sudo apt-get install -y libffi-dev
-sudo apt-get install -y libjpeg-dev
-sudo apt-get install -y zlib1g-dev
-
-# The version of six that comes with trusty is old, and doesn't work so well with unittest.mock
-sudo pip install six --upgrade
+# Runs setup for each of the following languages and programming environments.
+source setup_node.sh
+source setup_ruby.sh
+source setup_python.sh

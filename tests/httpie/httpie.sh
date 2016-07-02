@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Setup.
-rm -rf httpie
+rm -rf httpie/
 virtualenv --python=python2.7 --clear env
 source env/bin/activate
 
