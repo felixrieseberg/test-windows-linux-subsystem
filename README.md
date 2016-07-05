@@ -10,5 +10,5 @@ Then, from PowerShell, run `./run-tests.ps1` as Administrator.
 
 ## Parameters
 
-* Running a specific can be done by passing `-testSuite suiteNameToTest`
+* Running a specific test suite can be done by passing `-testSuite suiteNameToTest`
 * lxcore tracing can be enabled by passing `-lxcoreTrace`
