@@ -9,6 +9,10 @@ sudo apt-get install -y subversion
 sudo apt-get install -y build-essential
 sudo apt-get install -y cmake
 
+sudo apt-get install -y pkg-config
+sudo apt-get install -y libtool
+sudo apt-get install -y automake
+
 # Databases
 sudo apt-get install -y libmysqlclient-dev
 sudo apt-get install -y libsqlite3-dev
