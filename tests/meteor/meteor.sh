@@ -4,7 +4,7 @@ exec >  >(tee -a meteor.log)
 exec 2> >(tee -a meteor.log >&2)
 
 rm -rf meteor/
-git clone http://github.com/meteor/meteor
+git clone http://github.com/meteor/meteor --depth 1
 cd meteor/
 
 ./scripts/generate-dev-bundle.sh

@@ -11,7 +11,7 @@ rm -rf env/
 virtualenv --python=python2.7 --clear env
 source env/bin/activate
 
-git clone https://github.com/django/django
+git clone https://github.com/django/django --depth 1
 cd django/tests
 
 # Install testing requirements.
