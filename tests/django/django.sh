@@ -1,4 +1,7 @@
 #!/bin/bash
+>django.log
+exec >  >(tee -a django.log)
+exec 2> >(tee -a django.log >&2)
 
 # Remove the old checkout.
 rm -rf django/

@@ -1,7 +1,9 @@
 #!/bin/bash
+>jekyll.log
+exec >  >(tee -a jekyll.log)
+exec 2> >(tee -a jekyll.log >&2)
 
 rm -rf jekyll/
-
 git clone https://github.com/jekyll/jekyll
 cd jekyll
 

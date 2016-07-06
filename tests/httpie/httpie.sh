@@ -1,4 +1,7 @@
 #!/bin/bash
+>httpie.log
+exec >  >(tee -a httpie.log)
+exec 2> >(tee -a httpie.log >&2)
 
 # Setup.
 rm -rf httpie/

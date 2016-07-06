@@ -5,6 +5,11 @@ sudo apt-get update
 sudo apt-get install -y git
 sudo apt-get install -y subversion
 
+# Gets us: gcc/g++/libc/make/cmake
+sudo apt-get install -y build-essential
+sudo apt-get install -y cmake
+
+# Databases
 sudo apt-get install -y libmysqlclient-dev
 sudo apt-get install -y libsqlite3-dev
 sudo apt-get install -y libpq-dev
