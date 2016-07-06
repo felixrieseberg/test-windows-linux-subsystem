@@ -2,3 +2,5 @@ bower/bower
 less.js/less.js
 node_modules
 ruby_tools/
+
+*.log

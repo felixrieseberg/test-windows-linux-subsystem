@@ -1,4 +1,7 @@
 #!/bin/bash
+>django.log
+exec >  >(tee -a django.log)
+exec 2> >(tee -a django.log >&2)
 
 # Remove the old checkout.
 rm -rf django/
@@ -8,7 +11,7 @@ rm -rf env/
 virtualenv --python=python2.7 --clear env
 source env/bin/activate
 
-git clone https://github.com/django/django
+git clone https://github.com/django/django --depth 1
 cd django/tests
 
 # Install testing requirements.

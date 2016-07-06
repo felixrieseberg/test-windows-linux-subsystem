@@ -1,4 +1,7 @@
 #!/bin/bash
+>rails.log
+exec >  >(tee -a rails.log)
+exec 2> >(tee -a rails.log >&2)
 
 rm -rf rails/
 git clone https://github.com/rails/rails --depth 1
